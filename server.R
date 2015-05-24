@@ -16,7 +16,7 @@ shinyServer(
         output$applications <- renderPlot({ 
             male <- sum(subset(deptData(), Gender == "Male", Freq))
             female <- sum(subset(deptData(), Gender == "Female", Freq))
-            barplot(c(male, female), names.arg = c("Male", "Female"), main = "Applications received")
+            barplot(c(male, female), names.arg = c("Male", "Female"), main = "Number of applications received")
         })
         
         output$gender <- renderPlot({
@@ -27,8 +27,8 @@ shinyServer(
             ylim <- c(0, max(subset(deptData(), select=Freq)))
                 
             par(mfrow=c(1,2))
-            barplot(c(maleAdmit, maleReject), names.arg = c("Admitted", "Rejected"), main = "Male applicants", ylim = ylim)
-            barplot(c(femaleAdmit, femaleReject), names.arg = c("Admitted", "Rejected"), main = "Female applicants", ylim = ylim)
+            barplot(c(maleAdmit, maleReject), names.arg = c("Admitted", "Rejected"), main = "Number of male applicants", ylim = ylim)
+            barplot(c(femaleAdmit, femaleReject), names.arg = c("Admitted", "Rejected"), main = "Number of female applicants", ylim = ylim)
         })
     }
     )
